@@ -32,7 +32,10 @@ const WelcomeScreens = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   function setIndex(idx) {
-    if (idx > 2) return
+    if (idx > 2) {
+      setCurrentIndex(0)
+      return
+    }
     setCurrentIndex(idx)
   }
 
@@ -52,7 +55,7 @@ const WelcomeScreens = () => {
         header={screens[currentIndex].header}
         body={screens[currentIndex].text}
       />
-      <View style={{flexDirection: 'row', paddingBottom: 15, justifyContent: 'space-between'}}>
+      <View style={{width: '90%', flexDirection: 'row', paddingBottom: 15, justifyContent: 'space-between'}}>
         <Text style={styles.skipButton}>Skip</Text>
         <Text 
           style={styles.nextButton} 
