@@ -1,5 +1,5 @@
-import { Image, Platform, StatusBar, StyleSheet, Text, View } from "react-native";
-import { useState } from "react";
+import { Animated, Image, Platform, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { useEffect, useRef, useState } from "react";
 import colors from "../../constants/colors";
 import WelcomeTexts from "./WelcomeText";
 import Dots from "./Dots";
@@ -30,6 +30,7 @@ const screens = [
 
 const WelcomeScreens = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const fadeAnim = useRef(new Animated.Value(0)).current; 
 
   function setIndex(idx) {
     if (idx > 2) {
@@ -39,7 +40,26 @@ const WelcomeScreens = () => {
     setCurrentIndex(idx)
   }
 
-  return <View style={styles.container}>
+  useEffect(() => {
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 100,
+      useNativeDriver: true,
+    }).start();
+    return () => {
+      fadeAnim.setValue(0)
+    }
+  }, [fadeAnim, currentIndex]);
+
+  return <Animated.View // Special animatable View
+    style={{
+      opacity: fadeAnim,
+      width: '100%',
+      height: '100%',
+      flex: 1
+    }}
+  >
+  <View style={styles.container}>
     <Image
       source={{
         uri: screens[currentIndex].image.uri
@@ -57,17 +77,20 @@ const WelcomeScreens = () => {
       />
       <View style={{width: '90%', flexDirection: 'row', paddingBottom: 15, justifyContent: 'space-between'}}>
         <Text style={styles.skipButton}>Skip</Text>
-        <Text 
-          style={styles.nextButton} 
-          onPress={() => {
-            setIndex(currentIndex + 1)
-          }}
-        >
-          Next
-        </Text>
+        <TouchableOpacity>
+          <Text 
+            style={styles.nextButton} 
+            onPress={() => {
+              setIndex(currentIndex + 1)
+            }}
+          >
+            Next
+          </Text>
+        </TouchableOpacity>
       </View>
     </View>
   </View>
+  </Animated.View>
 }
 
 const styles = StyleSheet.create({
