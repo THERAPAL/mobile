@@ -1,5 +1,5 @@
 import { Image, Platform, StatusBar, StyleSheet, Text, View } from "react-native";
-import { Dots, WelcomeTexts } from "./InitialScreensComponents";
+import { ControlButtons, Dots, WelcomeTexts } from "./InitialScreensComponents";
 
 const WelcomeMS = () =>
   <View style={styles.container}>
@@ -15,7 +15,7 @@ const WelcomeMS = () =>
         header="Get the best mental support anywhere, anytime"
         body="Personalize your therapist and enjoy sessions through your preferred mode of communication"
       />
-      
+      <ControlButtons />
     </View>
   </View>
 
