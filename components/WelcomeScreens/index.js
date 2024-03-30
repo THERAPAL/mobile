@@ -1,5 +1,5 @@
 import { Image, Platform, StatusBar, StyleSheet, Text, View } from "react-native";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import colors from "../../constants/colors";
 import WelcomeTexts from "./WelcomeText";
 import Dots from "./Dots";
