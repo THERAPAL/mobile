@@ -1,8 +1,7 @@
-import { Platform, StatusBar, StyleSheet, Text, View } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import WelcomeMS from './components/WelcomeMS';
 import { useFonts } from 'expo-font';
+import WelcomeScreens from './components/WelcomeScreens';
 
 const Stack = createNativeStackNavigator()
 
@@ -17,9 +16,10 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false, }}>
         <Stack.Screen
-          name='Mental Support'
-          component={WelcomeMS}
+          name='welcome_screens'
+          component={WelcomeScreens}
         />
+        
       </Stack.Navigator>
     </NavigationContainer>
   );
