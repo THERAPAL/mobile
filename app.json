@@ -18,7 +18,9 @@
       [
         "expo-font",
         {
-          "fonts": ["./assets/fonts/Inter-Light.otf"]
+          "fonts": [
+            "./assets/fonts/Inter-Light.otf"
+          ]
         }
       ]
     ],
