@@ -1,18 +1,26 @@
 {
   "expo": {
-    "name": "therapal_mobile",
+    "name": "Therapal",
     "slug": "therapal_mobile",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "https://res.cloudinary.com/duqny6afm/image/upload/v1711772938/therapal/Group_1_l0pvpn.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "https://res.cloudinary.com/duqny6afm/image/upload/v1711774371/therapal/Splash_Screen_zgktmu.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "assetBundlePatterns": [
       "**/*"
+    ],
+    "plugins": [
+      [
+        "expo-font",
+        {
+          "fonts": ["./assets/fonts/Inter-Black.otf"]
+        }
+      ]
     ],
     "ios": {
       "supportsTablet": true
@@ -20,11 +28,11 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#1C9AC4"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "https://res.cloudinary.com/duqny6afm/image/upload/v1711772938/therapal/Group_1_l0pvpn.png"
     }
   }
 }
